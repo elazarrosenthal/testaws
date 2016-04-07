@@ -27,6 +27,8 @@ node{
     cmd = x2 +" " +  aws + " ec2 describe-instances"
     echo cmd
     bat cmd
+
+// create new instace and get id
     cmd2 = x2 + aws + " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  > run2.out"
    echo cmd2
    bat cmd2
@@ -36,10 +38,22 @@ node{
    def p = jsonSlurper.parseText(d)
    ii = p.Instances[0].InstanceId
    echo ii
+
+// tag instace
    cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMAchine " 
    echo cmd3
    bat  cmd3
+   
+// wait for instace to start 
+   cmd4 =  x2 + aws + " ec2 wait instance-status-ok  --instance-ids  " + ii 
+   echo cmd4
+   bat cmd4
 
-  
+// get windows password
+   cmd5 =  x2 + aws + " "ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + i-f704ef70
+   echo cmd5
+   bat cmd5
+
+   echo "End "
 
 }
