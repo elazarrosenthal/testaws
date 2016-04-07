@@ -50,7 +50,7 @@ node{
    bat cmd4
 
 // get windows password
-   cmd5 =  x2 + aws + " "ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + i-f704ef70
+   cmd5 =  x2 + aws + " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + i-f704ef70
    echo cmd5
    bat cmd5
 
