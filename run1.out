@@ -1,0 +1,88 @@
+{
+    "OwnerId": "312226949769", 
+    "ReservationId": "r-b9bb8b6b", 
+    "Groups": [], 
+    "Instances": [
+        {
+            "Monitoring": {
+                "State": "disabled"
+            }, 
+            "PublicDnsName": "", 
+            "Platform": "windows", 
+            "State": {
+                "Code": 0, 
+                "Name": "pending"
+            }, 
+            "EbsOptimized": false, 
+            "LaunchTime": "2016-04-07T19:42:49.000Z", 
+            "PrivateIpAddress": "10.252.143.239", 
+            "ProductCodes": [], 
+            "VpcId": "vpc-95499bf0", 
+            "StateTransitionReason": "", 
+            "InstanceId": "i-8f618a08", 
+            "ImageId": "ami-3d787d57", 
+            "PrivateDnsName": "ip-10-252-143-239.ec2.internal", 
+            "KeyName": "elazartest1", 
+            "SecurityGroups": [
+                {
+                    "GroupName": "palo-alto-all-open", 
+                    "GroupId": "sg-27f9af42"
+                }
+            ], 
+            "ClientToken": "", 
+            "SubnetId": "subnet-96d526e1", 
+            "InstanceType": "t2.micro", 
+            "NetworkInterfaces": [
+                {
+                    "Status": "in-use", 
+                    "MacAddress": "0a:2f:f1:a8:1d:63", 
+                    "SourceDestCheck": true, 
+                    "VpcId": "vpc-95499bf0", 
+                    "Description": "", 
+                    "NetworkInterfaceId": "eni-ddf2c89c", 
+                    "PrivateIpAddresses": [
+                        {
+                            "PrivateDnsName": "ip-10-252-143-239.ec2.internal", 
+                            "Primary": true, 
+                            "PrivateIpAddress": "10.252.143.239"
+                        }
+                    ], 
+                    "PrivateDnsName": "ip-10-252-143-239.ec2.internal", 
+                    "Attachment": {
+                        "Status": "attaching", 
+                        "DeviceIndex": 0, 
+                        "DeleteOnTermination": true, 
+                        "AttachmentId": "eni-attach-a14d655b", 
+                        "AttachTime": "2016-04-07T19:42:49.000Z"
+                    }, 
+                    "Groups": [
+                        {
+                            "GroupName": "palo-alto-all-open", 
+                            "GroupId": "sg-27f9af42"
+                        }
+                    ], 
+                    "SubnetId": "subnet-96d526e1", 
+                    "OwnerId": "312226949769", 
+                    "PrivateIpAddress": "10.252.143.239"
+                }
+            ], 
+            "SourceDestCheck": true, 
+            "Placement": {
+                "Tenancy": "default", 
+                "GroupName": "", 
+                "AvailabilityZone": "us-east-1c"
+            }, 
+            "Hypervisor": "xen", 
+            "BlockDeviceMappings": [], 
+            "Architecture": "x86_64", 
+            "StateReason": {
+                "Message": "pending", 
+                "Code": "pending"
+            }, 
+            "RootDeviceName": "/dev/sda1", 
+            "VirtualizationType": "hvm", 
+            "RootDeviceType": "ebs", 
+            "AmiLaunchIndex": 0
+        }
+    ]
+}

@@ -36,7 +36,7 @@ node{
    echo d
    def jsonSlurper = new JsonSlurper()
    def p = jsonSlurper.parseText(d)
-   ii = p.Instances[0].InstanceId
+   ii = new String(p.Instances[0].InstanceId)
    echo ii
 
 // tag instace
