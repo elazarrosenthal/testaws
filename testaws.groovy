@@ -40,18 +40,24 @@ node{
    echo ii
 
 // tag instace
+   echo "tagging"
    cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMAchine " 
    echo cmd3
    bat  cmd3
    
+   echo "tag done"
 // wait for instace to start 
+   echo "Waiting for start ...."
    cmd4 =  x2 + aws + " ec2 wait instance-status-ok  --instance-ids  " + ii 
    echo cmd4
    bat cmd4
+   echo "....start Done."
 
 // get windows password
+   echo "Getting Password"
    cmd5 =  x2 + aws + " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + i-f704ef70
    echo cmd5
+   echo "Got it"
    bat cmd5
 
    echo "End "
