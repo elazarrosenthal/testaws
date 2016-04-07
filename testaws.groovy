@@ -36,6 +36,10 @@ node{
    def p = jsonSlurper.parseText(d)
    ii = p.Instances[0].InstanceId
    echo ii
+   x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMAchine " 
+   echo x2
+   cmd x2
+
   
 
 }
