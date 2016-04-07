@@ -1,0 +1,18 @@
+
+bash-4.3$ aws ec2      terminate-instances --instance  "i-ceb75c49"
+{
+    "TerminatingInstances": [
+        {
+            "InstanceId": "i-ceb75c49", 
+            "CurrentState": {
+                "Code": 32, 
+                "Name": "shutting-down"
+            }, 
+            "PreviousState": {
+                "Code": 16, 
+                "Name": "running"
+            }
+        }
+    ]
+}
+

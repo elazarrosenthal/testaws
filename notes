@@ -1,0 +1,146 @@
+aws ec2     describe-instances --instance-id  i-2aac4aad 
+bash-4.3$ history | grep aws
+  170  aws s3 mb elazar-test3
+  173  aws s3 ls --recursive  s3://idtq-carrier-dlsot-net-deploy 
+  174  aws s3 ls --recursive  s3://idtq-elazartest
+  175  aws autoscaling help
+  176  aws s3 ls --recursive  s3://idtq-elazartest
+  177  aws s3 ls --recursive  s3://idtq-elazartest 
+  178  aws ec2 describe-instances
+  179  aws
+  180  aws help
+  181  aws --region us-east-1 ec2 describe-instances
+  183  ./aws_getcred.sh 
+  184  bash ./aws_getcred.sh 
+  185  aws --region us-east-1 ec2 describe-instances
+  189  aws --region us-east-1 ec2 describe-instances
+  192  aws --region us-east-1 ec2 describe-instances
+  288  whereus aws
+  289  aws
+  290  which aws
+  291  ls /bin/aws*
+  362  aws cp
+  363  aws s3  cp help
+  467  aws ec2 describe-images --owners self amazon
+  474  aws_getcred.sh
+  475  bash aws_getcred.sh 
+  480  aws ec2 describe-images --owners self amazon
+  481  aws ec2 describe-images --owners self amazon | grep elazar
+  482  aws ec2 describe-security-groups
+  483  aws ec2 describe-security-groups | less
+  484  aws ec2 describe-security-groups | grep -i all-open
+  485  aws ec2 describe-security-groups 
+  486  aws ec2 describe-security-groups | less
+  487  $ aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t1.micro --key-name MyKeyPair --security-group-ids sg-xxxxxxxx --subnet-id subnet-xxxxxxxx
+  488  x aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --key-name elazartest1 --security-group-ids  --subnet-id subnet-xxxxxxxx
+  493  aws ec2 describe-instances
+  494  aws ec2 describe-instances >  /tmp/i
+  497  aws ec2 describe-images --owners self
+  498  aws ec2 describe-images --owners self > /tmp/im
+  504  aws ec2 describe-security-groups
+  505  aws ec2 describe-security-groups | grep paloalto
+  506  aws ec2 describe-security-groups | grep -i  paloalto
+  507  aws ec2 describe-security-groups | grep -i  palo-alto
+  508  x aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --key-name elazartest1 --security-group-ids  --subnet-id subnet-xxxxxxxx
+  509  aws ec2 describe-subnets
+  510  aws ec2 describe-subnets > /tmp/subnets
+  511  aws ec2 describe-images --owners amazon > /tmp/im-amazon
+  650  ./aws_getcred.sh 
+  653  aws ec2 describe-images --owners amazon > /tmp/im-amazon
+  654  aws ec2 describe-images --owners self
+  655  ./aws_getcred.sh 
+  660  aws ec2 describe-images --owners self
+  661  aws ec2 describe-images --owners self > images
+  663  aws ec2 describe-instances
+  664  aws ec2 describe-instances > test.instances
+  669  aws ec2 get-password-data --instance  i-559b7cd2
+  670  aws ec2 get-password-data --instance-id i-559b7cd2" --priv-launch-key ~/Downloads/e.pem
+  671  aws ec2 get-password-data --instance-id i-559b7cd2 --priv-launch-key ~/Downloads/e.pem
+  672  aws ec2 describe-instances --instance-id i-559b7cd2
+  673  ./aws_getcred.sh 
+  678  aws ec2 describe-instances --instance-id i-559b7cd2
+  679  aws ec2 describe-instances --instance-id i-559b7cd2 | less
+  680  aws ec2 describe-instances --instance-id i-559b7cd2 > elazartestwininstace
+  685  aws ec2 get-password-data --instance-id i-559b7cd2 --priv-launch-key ~/Downloads/e.pem
+  690  aws
+  691  aws run
+  692  aws ec2
+  693  aws ec2 help
+  694  aws help
+  704  # $ aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t1.micro --key-name MyKeyPair --security-groups my-sg
+  705  #  aws ec2 run-instances --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name cwMyKeyPair --security-groups my-sg
+  709  #  aws ec2 run-instances --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  --szartest1 ecurity-groups 
+  712  #  aws ec2 run-instances --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 ecurity-groups sg-27f9af42
+  713  # aws ec2 run-instances --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 ecurity-groups sg-27f9af42
+  714  aws ec2 run-instances help
+  715   aws ec2 run-instances --dry-run  --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 ecurity-groups sg-27f9af42
+  716  aws ec2 run-instances help
+  717   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 ecurity-groups sg-27f9af42
+  718   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-groups sg-27f9af42
+  720   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-groups sg-27f9af42 --subnets subnet-96d526e1 --tags Name=elazar123
+  721   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-groups sg-27f9af42 --subnets subnet-96d526e1 
+  722   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-groups sg-27f9af42 --sub-nets subnet-96d526e1 
+  723   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-groups sg-27f9af42 --subnet-id subnet-96d526e1 
+  724   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-group-id sg-27f9af42 --subnet-id subnet-96d526e1 
+  725   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazarzartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 
+  726   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 
+  728  aws get-user
+  729  aws iam get-user --user-id 312226949769
+  730  aws iam get-user 
+  731  aws iam help
+  732  aws iam get-user 
+  733  aws iam get-user  --user-id 312226949769
+  734  aws iam get-user  --user-id 31222694976
+  735  aws iam get-user  help
+  736  aws iam get-user  --user-name elazar.rosenthal@idt.net
+  737  aws iam get-user 
+  738  aws iam get-users 
+  739  aws iam help
+  740  aws iam list users help
+  741  aws iam list users
+  742  aws iam list-users help
+  743  aws iam list-users 
+  744  `./aws_getcred.sh ` 
+  745  aws iam list-users
+  746  aws ec2 describe-instances --instance-id i-559b7cd2 > elazartestwininstace
+  747  aws ec2 describe-instances --instance-id i-559b7cd2
+  748  `./aws_getcred.sh ` 
+  749  aws ec2 describe-instances --instance-id i-559b7cd2 > elazartestwininstace
+  751  ./aws_getcred.sh 
+  756  aws ec2 describe-instances --instance-id i-559b7cd2 > elazartestwininstace
+  758  aws iam list-users
+  759  aws iam list-users > users
+  761  aws iam list-account-aliases
+  768   aws ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 
+  769  aws ec2 describe-instances --instance-id i-2aac4aad
+  916  ./aws_getcred.sh 
+  921  aws ec2 create-tags --resources 
+  922  aws ec2 create-tags --resources i-2aac4aad --tags Key=Name,Value=ElazarTestMAchine
+  923  aws ec2      terminate-instances --instance  i-2aac4aad 
+  924  aws ec2     display-instances --instance  i-2aac4aad 
+  925  aws ec2     describe-instances --instance  i-2aac4aad 
+  926  aws ec2     describe-instances --instance-id  i-2aac4aad 
+  928  ./aws_getcred.sh 
+  929  aws ec2 describe-instances
+  934  aws ec2 describe-instances
+  936  ~/aws_getcred.sh 
+  944  ./aws_getcred.sh 
+  999  atom aws_getcred.sh 
+ 1070  aws s3 ls --recursive  s3://idtq-elazartest 
+ 1071  aws s3 ls --recursive  s3://idtq-carrier-dlsot-net-deploy 
+ 1072  ls ~/.aws/
+ 1073  aws -i ~/.aws/credentials.s3 s3 ls --recursive  s3://idtq-carrier-dlsot-net-deploy 
+ 1074  aws help
+ 1075  AWS_CONFIG_FILE=~/.aws/credentials.s3 
+ 1076  aws s3 ls --recursive  s3://idtq-carrier-dlsot-net-deploy 
+ 1077  export AWS_CONFIG_FILE=~/.aws/credentials.s3 
+ 1078  aws s3 ls --recursive  s3://idtq-carrier-dlsot-net-deploy 
+ 1079  aws s3 ls --recursive  s3://idtq-carrier-net-deploy 
+ 1082  aws s3 ls --recursive  s3://idtq-carrier-net-deploy 
+ 1083  aws s3  s3://idtq-carrier-net-deploy 
+ 1084  aws s3  ls s3://idtq-carrier-net-deploy 
+ 1085  aws s3  ls s3://idtq-carrier-net-deploy/
+ 1168  ~/aws_getcred.sh 
+ 1169  history | grep aws
+bash-4.3$ 
+
