@@ -8,6 +8,14 @@ def object = jsonSlurper.parseText('{ "name": "John Doe" }')
 echo object.name
 }
 
+def extractiid(xml)
+{
+   def jsonSlurper = new JsonSlurper()
+   def p = jsonSlurper.parseText(xml)
+   ret = new String(p.Instances[0].InstanceId)
+   return ret
+}
+
 
 
 
@@ -34,14 +42,12 @@ node{
    bat cmd2
    d= readFile 'run2.out'
    echo d
-   def jsonSlurper = new JsonSlurper()
-   def p = jsonSlurper.parseText(d)
-   ii = new String(p.Instances[0].InstanceId)
+   ii = extractiid(d)
    echo ii
 
 // tag instace
    echo "tagging"
-   cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMAchine " 
+   cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMachine " 
    echo cmd3
    bat  cmd3
    
