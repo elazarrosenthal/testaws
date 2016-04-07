@@ -28,7 +28,10 @@ node{
     echo cmd
     bat cmd
     cmd2 = x2 + aws + " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  > run3.out"
+   echo cmd2
+   bat cmd2
    d= readFile 'run2.out'
+   echo d
    def jsonSlurper = new JsonSlurper()
    def p = jsonSlurper.parseText(d)
    ii = p.Instances[0].InstanceId
