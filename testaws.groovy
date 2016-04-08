@@ -72,7 +72,7 @@ def ltos(args)
 def aws(envprefix ,args){
 	awsexe="c:/Program Files/Amazon/AWSCLI/aws.exe"
 	awspath=envprefix + quote(dospath(awsexe))  + " > awstmp.out " 
-	awscmd = msdeploypath +" " +  ltos(args)
+	awscmd = awspath +" " +  ltos(args)
 	echo "Running AWS...."
 	echo awscmd
 	bat awscmd
