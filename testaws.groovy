@@ -105,7 +105,10 @@ node{
     echo "\n\n"
     echo x2
     bat x2
+    echo "getting env"
     env = makesetenv(x)
+    echo "env =  " + env
+
 
 /*
     aws='"c:\\Program Files\\Amazon\\AWSCLI\\aws"'
