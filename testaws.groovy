@@ -135,6 +135,11 @@ node{
    aws5 = aws(senv,[  " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " ,  ii] )
    echo aws5
    echo "Got it"
+   
+
+   echo "terminating "
+   aws6 = aws(senv,[ " terminate-instances --instance "  ,  ii] )
+   echo aws6
 
    echo "End "
 
