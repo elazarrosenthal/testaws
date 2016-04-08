@@ -104,53 +104,37 @@ echo x2
 node{
     stage "1"
    x =input message: 'enter vars:', parameters: [[$class: 'TextParameterDefinition', defaultValue: '', description: '', name: 'AWSENV']]
-    x0 = x.replaceAll("\n", "")
-    x1 = x0.replaceAll(";", "\n")
-    x2 = x1.replaceAll("export", "set")
-    echo "\n\n"
-    echo x2
-    bat x2
-    echo "getting env"
     senv = makesetenv(x)
     echo "senv =  " +senv
-
 
    aws1 =  aws(senv, ["ec2", "describe-instances"])
    echo "aws 1 = " + aws1
 
 // create new instace and get id
-/*
-    cmd2 = x2 + aws + " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  > run2.out"
-   echo cmd2
-   bat cmd2
-   d= readFile 'run2.out'
-   echo d
-   ii = extractiid(d)
-   echo ii
-*/
    aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
    ii = extractiid(aws2)
 
+   echo ii
+
 // tag instace
+//   cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMachine " 
    echo "tagging"
-   cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMachine " 
-   echo cmd3
-   bat  cmd3
+   aws3 = aws(senv, [" ec2 create-tags --resources  " ,  ii , "  --tags Key=Name,Value=ElazarTestMachine "  ])
    
    echo "tag done"
 // wait for instace to start 
    echo "Waiting for start ...."
-   cmd4 =  x2 + aws + " ec2 wait instance-status-ok  --instance-ids  " + ii 
-   echo cmd4
-   bat cmd4
+//    cmd4 =  x2 + aws + " ec2 wait instance-status-ok  --instance-ids  " + ii 
+
+   aws4 = aws(senv, [" ec2 wait instance-status-ok  --instance-ids  " ,  ii ])
    echo "....start Done."
 
 // get windows password
    echo "Getting Password"
-   cmd5 =  x2 + aws + " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + ii
-   echo cmd5
+ //   cmd5 =  x2 + aws + " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + ii
+   aws5 = aws(senv,[  " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " ,  ii] )
+   echo aws5
    echo "Got it"
-   bat cmd5
 
    echo "End "
 
