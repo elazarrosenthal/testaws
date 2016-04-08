@@ -16,25 +16,90 @@ def extractiid(xml)
    return ret
 }
 
+def getimagedata(r)
+{
+	js = new JsonSlurper()
+	p  = js.parseText(r)
+	iid  = new String(p.Instances[0].InstanceId)
+	pip  = new String(p.Instances[0].PrivateIpAddress)
+	println iid
+	println pip
+	return ret = ["id": iid, "ip":  pip]
+}
+
+
+def ltos(args) 
+{
+	ret = ""
+	if (args.class == java.util.ArrayList)
+	{
+		sz = args.size()
+		for(i = 0 ; i < sz; i++)
+		{
+			ret += args[i].toString();
+			if ((i + 1) < sz)
+			{
+				ret +=" " 
+			}
+			
+		}
+	}
+	else
+	{
+		ret = args.toString();
+	}
+
+	return ret;
+}
+
+
+def aws(envprefix ,args){
+	awsexe="c:/Program Files/Amazon/AWSCLI/aws.exe"
+	awspath=envprefix + quote(dospath(awsexe)) " + " > awstmp.out " 
+	awscmd = msdeploypath +" " +  ltos(args)
+	echo "Running AWS...."
+	echo awscmd
+	bat awscmd
+	d= readFile 'awstmp.out'
+	echo "aws Generated ..."
+	echo d
+	echo "aws  done"
+	return d
+}
+
+
+makesetenv(raw)
+{
+    x0 = raw.replaceAll("\n", "")
+    x1 = x0.replaceAll(";", "\n")
+    x2 = x1.replaceAll("export", "set")
+    return x2
+}
+
+
 
 
 
 node{
     stage "1"
    x =input message: 'enter vars:', parameters: [[$class: 'TextParameterDefinition', defaultValue: '', description: '', name: 'AWSENV']]
-   echo x
-   echo x.inspect()
     x0 = x.replaceAll("\n", "")
     x1 = x0.replaceAll(";", "\n")
     x2 = x1.replaceAll("export", "set")
     echo "\n\n"
     echo x2
     bat x2
+    env = makesetenv(x)
+
+/*
     aws='"c:\\Program Files\\Amazon\\AWSCLI\\aws"'
     echo aws
     cmd = x2 +" " +  aws + " ec2 describe-instances"
     echo cmd
     bat cmd
+*/
+   aws1 =  aws(env, ["ec2", "describe-instances])
+   echo "aws 1 = " + aws1
 
 // create new instace and get id
     cmd2 = x2 + aws + " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  > run2.out"
