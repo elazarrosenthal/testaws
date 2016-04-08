@@ -15,6 +15,14 @@ def dospath(path1)
 	return retpath
 }
 
+// put quotes around string (with spaces)
+def quote(s)
+{
+	rets = "\"" + s.toString() + "\""
+	return rets
+}
+
+
 
 def extractiid(xml)
 {
