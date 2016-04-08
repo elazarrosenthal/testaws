@@ -122,7 +122,7 @@ node{
     echo cmd
     bat cmd
 */
-   aws1 =  aws(env, ["ec2", "describe-instances"])
+   aws1 =  aws(senv, ["ec2", "describe-instances"])
    echo "aws 1 = " + aws1
 
 // create new instace and get id
