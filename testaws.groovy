@@ -115,17 +115,11 @@ node{
     echo "senv =  " +senv
 
 
-/*
-    aws='"c:\\Program Files\\Amazon\\AWSCLI\\aws"'
-    echo aws
-    cmd = x2 +" " +  aws + " ec2 describe-instances"
-    echo cmd
-    bat cmd
-*/
    aws1 =  aws(senv, ["ec2", "describe-instances"])
    echo "aws 1 = " + aws1
 
 // create new instace and get id
+/*
     cmd2 = x2 + aws + " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  > run2.out"
    echo cmd2
    bat cmd2
@@ -133,6 +127,9 @@ node{
    echo d
    ii = extractiid(d)
    echo ii
+*/
+   aws2 = aws ( " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "
+   ii = extractiid(aws2)
 
 // tag instace
    echo "tagging"
