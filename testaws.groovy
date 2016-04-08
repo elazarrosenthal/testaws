@@ -93,6 +93,7 @@ echo "m ... 2"
 echo "m ... 3"
     x2 = x1.replaceAll("export", "set")
 echo "m ... 4"
+echo x2
     return x2
 }
 
@@ -110,8 +111,8 @@ node{
     echo x2
     bat x2
     echo "getting env"
-    env = makesetenv(x)
-    echo "env =  " + env
+    senv = makesetenv(x)
+    echo "senv =  " +s env
 
 
 /*
