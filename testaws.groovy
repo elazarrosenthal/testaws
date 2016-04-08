@@ -86,9 +86,13 @@ def aws(envprefix ,args){
 
 def makesetenv(raw)
 {
+echo "m ... 1"
     x0 = raw.replaceAll("\n", "")
+echo "m ... 2"
     x1 = x0.replaceAll(";", "\n")
+echo "m ... 3"
     x2 = x1.replaceAll("export", "set")
+echo "m ... 4"
     return x2
 }
 
