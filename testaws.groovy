@@ -68,7 +68,7 @@ def aws(envprefix ,args){
 }
 
 
-makesetenv(raw)
+def makesetenv(raw)
 {
     x0 = raw.replaceAll("\n", "")
     x1 = x0.replaceAll(";", "\n")
