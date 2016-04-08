@@ -4,15 +4,15 @@ def getdata(r)
 {
 	js = new JsonSlurper()
 	p  = js.parseText(r)
-	ret = new String(p.Instances[0].InstanceId)
-	return ret
+	iid  = new String(p.Instances[0].InstanceId)
+	pip  = new String(p.Instances[0].PrivateIpAddress)
+	println iid
+	println pip
+	return ret = ["id": iid, "ip":  pip]
 }
 
 d = new File('run1.out').text
 ii = getdata(d)
-println "1> " + ii
-sleep 5000
-println "1> " + ii
+println "1> " + ii["id"]
+println "2> " + ii["ip"]
 
-i2 = getdata(d)
-println "1> " + i2
