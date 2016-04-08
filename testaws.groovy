@@ -128,7 +128,7 @@ node{
    ii = extractiid(d)
    echo ii
 */
-   aws2 = aws ( " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 ")
+   aws2 = aws([ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
    ii = extractiid(aws2)
 
 // tag instace
