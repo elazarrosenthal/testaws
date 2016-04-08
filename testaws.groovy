@@ -138,7 +138,7 @@ node{
    
 
    echo "terminating "
-   aws6 = aws(senv,[ " terminate-instances --instance "  ,  ii] )
+   aws6 = aws(senv,[ "ec2  terminate-instances --instance "  ,  ii] )
    echo aws6
 
    echo "End "
