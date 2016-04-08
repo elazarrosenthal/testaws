@@ -55,7 +55,7 @@ def ltos(args)
 
 def aws(envprefix ,args){
 	awsexe="c:/Program Files/Amazon/AWSCLI/aws.exe"
-	awspath=envprefix + quote(dospath(awsexe)) " + " > awstmp.out " 
+	awspath=envprefix + quote(dospath(awsexe))  + " > awstmp.out " 
 	awscmd = msdeploypath +" " +  ltos(args)
 	echo "Running AWS...."
 	echo awscmd
@@ -98,7 +98,7 @@ node{
     echo cmd
     bat cmd
 */
-   aws1 =  aws(env, ["ec2", "describe-instances])
+   aws1 =  aws(env, ["ec2", "describe-instances"])
    echo "aws 1 = " + aws1
 
 // create new instace and get id
