@@ -8,6 +8,14 @@ def object = jsonSlurper.parseText('{ "name": "John Doe" }')
 echo object.name
 }
 
+// conver forward slash to backslash to avoid excess escaping
+def dospath(path1) 
+{ 
+	retpath =  path1.replace("/", "\\")
+	return retpath
+}
+
+
 def extractiid(xml)
 {
    def jsonSlurper = new JsonSlurper()
