@@ -112,7 +112,7 @@ node{
     bat x2
     echo "getting env"
     senv = makesetenv(x)
-    echo "senv =  " +s env
+    echo "senv =  " +senv
 
 
 /*
