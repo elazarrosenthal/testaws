@@ -48,6 +48,9 @@ def getamidata(r)
         js = new JsonSlurper()
         p  = js.parseText(r)
         amiid  = new String(p.ImageId)
+        println amiid;
+	js = null
+	p = null
         return amiid
 }
 
