@@ -148,7 +148,7 @@ node{
    echo "Got it"
    
    echo "imaging "
-   aws6 = aws(senv,[ "ec2 ", "create-image --instance-id ", ii, "--name", "elazartest1name-"+nows, "--description",  "elazar test server description-"+nows ])
+   aws6 = aws(senv,[ "ec2 ", "create-image --instance-id ", ii, "--name", "elazartest1name-"+nows, "--description",  quote("elazar test server description-"+nows) ])
 
 
    echo "terminating "
