@@ -43,6 +43,13 @@ def getimagedata(r)
 	return ret = ["id": iid, "ip":  pip]
 }
 
+def getamidata(r)
+{
+        js = new JsonSlurper()
+        p  = js.parseText(r)
+        amiid  = new String(p.ImageId)
+        return amiid
+}
 
 def ltos(args) 
 {
@@ -147,8 +154,21 @@ node{
    echo aws5
    echo "Got it"
    
+   echo "stopping.. "
+   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
+
+   echo "wait for stopped"
+   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
+
+
    echo "imaging "
    aws6 = aws(senv,[ "ec2 ", "create-image --instance-id ", ii, "--name", "elazartest1name-"+nows, "--description",  quote("elazar test server description-"+nows) ])
+   amiid = getamidata(aws6)
+   echo "amiid: " + amiid
+
+   echo "wait for ami to be ready"
+   awsami1 = aws(senv, [" ec2 wait     image-available ----image-ids " ,  amiid ])
+
 
 
    echo "terminating "
