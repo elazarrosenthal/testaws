@@ -166,7 +166,7 @@ node{
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
    echo "wait for stopped"
-   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
+//   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
    echo nowstring()
 
 
