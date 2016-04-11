@@ -125,7 +125,7 @@ node{
    echo "aws 1 = " + aws1
 
 // create new instace and get id
-   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1-"+nows.  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
+   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1-"+nows,  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
    ii = extractiid(aws2)
 
    echo ii
