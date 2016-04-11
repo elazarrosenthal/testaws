@@ -125,27 +125,24 @@ node{
    echo "aws 1 = " + aws1
 
 // create new instace and get id
-   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1-"+nows,  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
+   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1",  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
    ii = extractiid(aws2)
 
    echo ii
 
 // tag instace
-//   cmd3 = x2 + aws + " ec2 create-tags --resources  " + ii + "  --tags Key=Name,Value=ElazarTestMachine " 
    echo "tagging"
-   aws3 = aws(senv, [" ec2 create-tags --resources  " ,  ii , "  --tags Key=Name,Value=ElazarTestMachine "  ])
-   
+   aws3 = aws(senv, [" ec2 create-tags --resources  " ,  ii , "  --tags Key=Name,Value=ElazarTestMachine-"+nows  ])
    echo "tag done"
+
 // wait for instace to start 
    echo "Waiting for start ...."
-//    cmd4 =  x2 + aws + " ec2 wait instance-status-ok  --instance-ids  " + ii 
-
    aws4 = aws(senv, [" ec2 wait instance-status-ok  --instance-ids  " ,  ii ])
    echo "....start Done."
 
+
 // get windows password
    echo "Getting Password"
- //   cmd5 =  x2 + aws + " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " + ii
    aws5 = aws(senv,[  " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " ,  ii] )
    echo aws5
    echo "Got it"
