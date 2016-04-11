@@ -162,8 +162,8 @@ node{
    echo nowstring()
    
    echo nowstring()
-   echo "stopping.. "
-   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
+///   echo "stopping.. "
+//   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
    echo "wait for stopped"
    aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
@@ -180,7 +180,7 @@ node{
    echo "wait for ami to be ready"
 // aws ec2 wait image-available --image-ids ami-947063fe
 
-   awsami1 = aws(senv, [" ec2 wait     image-available --image-ids " ,  amiid ])
+//   awsami1 = aws(senv, [" ec2 wait     image-available --image-ids " ,  amiid ])
 
    echo nowstring()
 
