@@ -177,8 +177,10 @@ node{
    echo "amiid: " + amiid
 
    echo nowstring()
- ////  echo "wait for ami to be ready"
- //  awsami1 = aws(senv, [" ec2 wait     image-available ----image-ids " ,  amiid ])
+   echo "wait for ami to be ready"
+// aws ec2 wait image-available --image-ids ami-947063fe
+
+   awsami1 = aws(senv, [" ec2 wait     image-available --image-ids " ,  amiid ])
 
    echo nowstring()
 
