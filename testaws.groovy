@@ -97,12 +97,26 @@ echo x2
     return x2
 }
 
+def nowstring()
+{
+	now = new Date()
+	year = (now.year + 1900 )
+	month =  (now.month + 1 ).toString().padLeft(2,"0")
+	date = now.date.toString().padLeft(2,"0")
+	hour = now.getHours().toString().padLeft(2,"0")
+	min = now.getMinutes().toString().padLeft(2,"0")
+	sec = now.getSeconds().toString().padLeft(2,"0")
+	ret = year + "-" + month + "-" + date + "-" + hour+ "-" + min  + "-" + sec
+	return ret
+}
+
 
 
 
 
 node{
     stage "1"
+    nows =nowstring()
    x =input message: 'enter vars:', parameters: [[$class: 'TextParameterDefinition', defaultValue: '', description: '', name: 'AWSENV']]
     senv = makesetenv(x)
     echo "senv =  " +senv
@@ -111,7 +125,7 @@ node{
    echo "aws 1 = " + aws1
 
 // create new instace and get id
-   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name  elazartest1 --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
+   aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1-"+nows.  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1 "])
    ii = extractiid(aws2)
 
    echo ii
@@ -137,7 +151,7 @@ node{
    echo "Got it"
    
    echo "imaging "
-   aws6 = aws(senv,[ "ec2 ", " create-image --instance-id ", ii, "--name", "elazartestservername", "--description".  "elazartestserverdesc" ])
+   aws6 = aws(senv,[ "ec2 ", " create-image --instance-id ", ii, "--name", "elazartestservername-"+nows, "--description".  "elazartestserverdesc-"+nows ])
 
 
    echo "terminating "
