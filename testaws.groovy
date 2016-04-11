@@ -185,8 +185,8 @@ node{
    echo nowstring()
 
 
-   echo "terminating "
-   aws7 = aws(senv,[ "ec2  terminate-instances --instance-ids"  ,  ii] )
+//   echo "terminating "
+//   aws7 = aws(senv,[ "ec2  terminate-instances --instance-ids"  ,  ii] )
 
    echo nowstring()
 
