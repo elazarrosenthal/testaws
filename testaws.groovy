@@ -169,8 +169,8 @@ node{
    amiid = getamidata(aws6)
    echo "amiid: " + amiid
 
-   echo "wait for ami to be ready"
-   awsami1 = aws(senv, [" ec2 wait     image-available ----image-ids " ,  amiid ])
+ ////  echo "wait for ami to be ready"
+ //  awsami1 = aws(senv, [" ec2 wait     image-available ----image-ids " ,  amiid ])
 
 
 
