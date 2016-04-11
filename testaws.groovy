@@ -145,38 +145,48 @@ node{
    aws3 = aws(senv, [" ec2 create-tags --resources  " ,  ii , "  --tags Key=Name,Value=ElazarTestMachine-"+nows  ])
    echo "tag done"
 
+   echo nowstring()
 // wait for instace to start 
    echo "Waiting for start ...."
    aws4 = aws(senv, [" ec2 wait instance-status-ok  --instance-ids  " ,  ii ])
    echo "....start Done."
+   echo nowstring()
 
 
+   echo nowstring()
 // get windows password
    echo "Getting Password"
    aws5 = aws(senv,[  " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " ,  ii] )
    echo aws5
    echo "Got it"
+   echo nowstring()
    
+   echo nowstring()
    echo "stopping.. "
    aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
    echo "wait for stopped"
    aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
+   echo nowstring()
 
 
+   echo nowstring()
    echo "imaging "
    aws6 = aws(senv,[ "ec2 ", "create-image --instance-id ", ii, "--name", "elazartest1name-"+nows, "--description",  quote("elazar test server description-"+nows) ])
    amiid = getamidata(aws6)
    echo "amiid: " + amiid
 
+   echo nowstring()
  ////  echo "wait for ami to be ready"
  //  awsami1 = aws(senv, [" ec2 wait     image-available ----image-ids " ,  amiid ])
 
+   echo nowstring()
 
 
    echo "terminating "
    aws7 = aws(senv,[ "ec2  terminate-instances --instance-ids"  ,  ii] )
 
+   echo nowstring()
 
    echo "End "
 
