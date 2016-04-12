@@ -143,7 +143,7 @@ def wmicexec(ip,user,pass,cmd)
 {
 	node="/node:" + ip
 	u = "/user:" +  user
-	p = "/password:" +  pass
+	p = "/password:\'" +  pass + "\'"
         c1 = "process call create "
         c2 = quote(cmd)
         wmic([node,u,p,c1,c2])
