@@ -163,7 +163,7 @@ def mkadmin(ip, auser, apass, uname)
 }
 def mkrdu(ip, auser, apass, uname)
 {
-	cmd = "net localgroups /add  \"Remote Desktop Users\" " + uname 
+	cmd = "net localgroups /add  \\\"Remote Desktop Users\\\" " + uname 
 	wmicexec(ip,auser,apass,cmd)
 	
 }
