@@ -146,7 +146,7 @@ def wmicexec(ip,user,pass,cmd)
 	p = "/password:" +  pass
         c1 = "process call create "
         c2 = quote(cmd)
-        wmic([mode,u,p,c1,c2])
+        wmic([node,u,p,c1,c2])
 }
 
 def adduser(ip, auser, apass, uname, upass)
