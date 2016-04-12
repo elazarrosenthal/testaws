@@ -161,6 +161,13 @@ def mkadmin(ip, auser, apass, uname)
 	wmicexec(ip,auser,apass,cmd)
 	
 }
+def mkrdu(ip, auser, apass, uname)
+{
+	cmd = "net localgroups /add  \"Remote Desktop Users\" " + uname 
+	wmicexec(ip,auser,apass,cmd)
+	
+}
+
 
 
 
@@ -217,6 +224,7 @@ node{
 
    adduser(ip, "Administrator", adminpass, "installer", "mrsetup1!")
    mkadmin(ip, "Administrator", adminpass, "installer")
+   mkrdu(ip, "Administrator", adminpass, "installer")
    adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
    
