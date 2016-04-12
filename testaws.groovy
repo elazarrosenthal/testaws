@@ -29,10 +29,12 @@ def getimagedata(r)
 {
 	js = new JsonSlurper()
 	p  = js.parseText(r)
+	js = null
 	iid  = new String(p.Instances[0].InstanceId)
 	pip  = new String(p.Instances[0].PrivateIpAddress)
 	println iid
 	println pip
+	js = null
 	return ret = ["id": iid, "ip":  pip]
 }
 
@@ -46,6 +48,18 @@ def getamidata(r)
 	p = null
         return amiid
 }
+
+def getpass(r)
+{
+        js = new JsonSlurper()
+        p  = js.parseText(r)
+        amiid  = new String(p.PasswordData)
+        println amiid;
+	js = null
+	p = null
+        return amiid
+}
+
 
 def ltos(args) 
 {
@@ -115,6 +129,13 @@ def nowstring()
 
 
 
+def adduser( name, passwd)
+{
+}
+
+def mkadmin( name)
+{
+}
 
 
 node{
@@ -134,9 +155,18 @@ node{
    writeFile file: 'input.json', text: '[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 40 } }, { \"DeviceName\": \"xvdb\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 30 } } ]  '
 
    aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1",  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  --block-device-mappings", "file://input.json"])
-   ii = extractiid(aws2)
+  // ii = extractiid(aws2)
+    idat =    getimagedata(aws2)
+    ii =  idat.id
+    ip = idat.ip
+
 
    echo ii
+   echo ip
+
+  adduser(senv, "oracle", "mrdb1!")
+  adduser(senv, "installer", "mrsetup1!")
+  mkadmin(senv, "installer")
 
 // tag instace
    echo "tagging"
@@ -156,6 +186,8 @@ node{
    echo "Getting Password"
    aws5 = aws(senv,[  " ec2 get-password-data --priv-launch-key D:\\elazar\\elazartest1.pem --instance-id " ,  ii] )
    echo aws5
+   adminpass = getpass(aws5)
+   echo adminpass
    echo "Got it"
    echo nowstring()
    
