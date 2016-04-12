@@ -177,7 +177,7 @@ def copyfiles(ip)
  echo dest
  echo mount 
  echo unmount
- copy = "copy d:\\InstallPkgs\\destdir.zip " + dest
+ copy = "copy d:\\InstallPkgs\\*.zip " + dest
  echo copy
 
  bat mount
