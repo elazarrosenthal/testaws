@@ -35,7 +35,8 @@ def getimagedata(r)
 	println iid
 	println pip
 	js = null
-	return ret = ["id": iid, "ip":  pip]
+	ret = ["id": iid, "ip":  pip]
+	return ret
 }
 
 def getamidata(r)
@@ -157,6 +158,7 @@ node{
    aws2 = aws(senv, [ " ec2 run-instances   --image-id ami-3d787d57 --count 1 --instance-type t2.micro --key-name ", "elazartest1",  " --security-group-ids sg-27f9af42 --subnet-id subnet-96d526e1  --block-device-mappings", "file://input.json"])
   // ii = extractiid(aws2)
     idat =    getimagedata(aws2)
+    echo "idat = " + idat.toString()
     ii =  idat.id
     ip = idat.ip
 
