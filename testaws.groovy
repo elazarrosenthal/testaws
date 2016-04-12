@@ -181,7 +181,7 @@ def copyfiles(ip)
 {
  dest = "\\\\" + ip + "\\share"
  mount = "net use  " + dest + "  mountit1! /user:share"
- unmount = "net use " +dest + "  /drop"
+ unmount = "net use " +dest + "  /delete"
  echo dest
  echo mount 
  echo unmount
