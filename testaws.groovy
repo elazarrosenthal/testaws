@@ -216,7 +216,7 @@ node{
 
 
    adduser(ip, "Administrator", adminpass, "installer", "mrsetup1!")
-   mkadmin(ip, "Administrator", adminpass, installer)
+   mkadmin(ip, "Administrator", adminpass, "installer")
    adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
    
