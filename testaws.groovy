@@ -129,6 +129,38 @@ def nowstring()
 }
 
 
+def wmic(args)
+{
+	wmicpath="C:/Windows/System32/wbem/WMIC.exe"
+	wmiccmd = wmicpath +" " +  ltos(args)
+	echo "Running Wmic...."
+	echo wmiccmd
+	bat wmiccmd
+	echo "wmic  done"
+}
+
+def wmicexec(ip,user,pass,cmd)
+{
+	node="/node:" + ip
+	u = "/user:" +  user
+	p = "/password:" +  pass
+        c1 = "process call create "
+        c2 = quote(cmd)
+        wmic([mode,u,p,c1,c2])
+}
+
+def adduser(ip, auser, apass, uname, upass)
+{
+	cmd = "net user /add " + uname + " " + upass 
+	wmicexec(ip,auser,apass,cmd)
+}
+
+def mkadmin(ip, auser, apass, uname)
+{
+	cmd = "net localgroups /add  administrators" + uname 
+	wmicexec(ip,auser,apass,cmd)
+	
+}
 
 
 
@@ -181,8 +213,13 @@ node{
    echo adminpass
    echo "Got it"
    echo nowstring()
+
+
+   adduser(ip, "Administrator", adminpass, "installer", "mrsetup1!")
+   mkadmin(ip, "Administrator", adminpass, installer)
+   adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
+   adduser(ip, "Administrator", adminpass, "share", "mountit1!")
    
-   echo nowstring()
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
