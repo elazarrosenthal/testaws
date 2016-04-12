@@ -253,7 +253,7 @@ node{
    echo pscmd
    wmicexec(ip,"Administrator",adminpass, pscmd)
 
-   copyfiles()
+   copyfiles(ip)
    
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
