@@ -179,7 +179,7 @@ def mkrdu(ip, auser, apass, uname)
 
 def copyfiles(ip)
 {
- dest = "\\\\" + ip + "\\share\\"
+ dest = "\\\\" + ip + "\\share"
  mount = "net use  " + dest + "  mountit1! /user:share"
  unmount = "net use " +dest + "  /drop"
  echo dest
