@@ -8,6 +8,14 @@ def dospath(path1)
 	return retpath
 }
 
+
+def escapeand(path1) 
+{ 
+	esc =  path1.replace("& "^&")
+	return esc
+}
+
+
 // put quotes around string (with spaces)
 def quote(s)
 {
@@ -143,7 +151,7 @@ def wmicexec(ip,user,pass,cmd)
 {
 	node="/node:" + ip
 	u = "/user:" +  user
-	p = "/password:\'" +  pass + "\'"
+	p = "/password:\'" +  escapeand(pass) + "\'"
         c1 = "process call create "
         c2 = quote(cmd)
 echo c2
