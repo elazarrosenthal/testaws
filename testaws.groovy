@@ -157,13 +157,13 @@ def adduser(ip, auser, apass, uname, upass)
 
 def mkadmin(ip, auser, apass, uname)
 {
-	cmd = "net localgroups /add  administrators " + uname 
+	cmd = "net localgroup /add  administrators " + uname 
 	wmicexec(ip,auser,apass,cmd)
 	
 }
 def mkrdu(ip, auser, apass, uname)
 {
-	cmd = "net localgroups /add  \'Remote Desktop Users\' " + uname 
+	cmd = "net localgroup /add  \'Remote Desktop Users\' " + uname 
 	wmicexec(ip,auser,apass,cmd)
 	
 }
