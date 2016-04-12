@@ -228,6 +228,9 @@ node{
    adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
    wmicexec(ip,"Administrator",adminpass, "mkdir d:\\share")
+
+   pscmd="powershell -Command \$x='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd "
+   wmicexec(ip,"Administrator",adminpass, pscmd)
    wmicexec(ip,"Administrator",adminpass, "powershell -Command $x='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd ")
    
 ///   echo "stopping.. "
