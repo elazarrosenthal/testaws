@@ -260,7 +260,7 @@ node{
    echo "pscmd"
    echo pscmd
    wmicexec(ip,"Administrator",adminpass, pscmd)
-
+   sleep 30
    copyfiles(ip)
    
 ///   echo "stopping.. "
