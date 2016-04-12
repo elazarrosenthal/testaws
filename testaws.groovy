@@ -146,6 +146,7 @@ def wmicexec(ip,user,pass,cmd)
 	p = "/password:\'" +  pass + "\'"
         c1 = "process call create "
         c2 = quote(cmd)
+echo c2
         wmic([node,u,p,c1,c2])
 }
 
@@ -230,6 +231,8 @@ node{
    wmicexec(ip,"Administrator",adminpass, "cmd /c mkdir d:\\share")
 
    pscmd="powershell -Command \$x='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd /c \$x "
+   echo "pscmd"
+   echo pscmd
    wmicexec(ip,"Administrator",adminpass, pscmd)
    wmicexec(ip,"Administrator",adminpass, "powershell -Command $x='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd ")
    
