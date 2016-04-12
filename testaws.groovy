@@ -169,6 +169,24 @@ def mkrdu(ip, auser, apass, uname)
 	
 }
 
+def copyfiles(ip)
+{
+ dest = "\\\\" + ip + "\\share+\\"
+ mount = "net use  " + dest + "  mountit1! /user:share"
+ unmount = "net use " +dest + "  /drop"
+ echo dest
+ echo mount 
+ echo unmount
+ copy = "copy d:\\InstallPkgs\\destdir.zip " + dest
+ echo copy
+
+ bat mount
+
+ bat copy
+
+ bat unmount
+
+}
 
 
 
@@ -230,10 +248,12 @@ node{
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
    wmicexec(ip,"Administrator",adminpass, "cmd /c mkdir d:\\share")
 
-   pscmd="powershell -Command \$netcmd='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd /c \$netcmd "
+   pscmd="powershell -Command \$netcmd='net share share=d:\\share /grant:share'+[char]44+'full'; cmd /c \$netcmd "
    echo "pscmd"
    echo pscmd
    wmicexec(ip,"Administrator",adminpass, pscmd)
+
+   copyfiles()
    
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
