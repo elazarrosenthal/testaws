@@ -157,13 +157,13 @@ def adduser(ip, auser, apass, uname, upass)
 
 def mkadmin(ip, auser, apass, uname)
 {
-	cmd = "net localgroups /add  administrators" + uname 
+	cmd = "net localgroups /add  administrators " + uname 
 	wmicexec(ip,auser,apass,cmd)
 	
 }
 def mkrdu(ip, auser, apass, uname)
 {
-	cmd = "net localgroups /add  \\\"Remote Desktop Users\\\" " + uname 
+	cmd = "net localgroups /add  \"Remote Desktop Users\" " + uname 
 	wmicexec(ip,auser,apass,cmd)
 	
 }
@@ -227,7 +227,7 @@ node{
    mkrdu(ip, "Administrator", adminpass, "installer")
    adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
-   wmicexec(ip,"Administrator",adminpass, "mkdir d:\\share")
+   wmicexec(ip,"Administrator",adminpass, "cmd /c mkdir d:\\share")
 
    pscmd="powershell -Command \$x='net share drop=d:\\share /grant:share'+[char]44+'full'; cmd "
    wmicexec(ip,"Administrator",adminpass, pscmd)
