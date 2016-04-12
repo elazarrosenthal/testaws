@@ -11,7 +11,7 @@ def dospath(path1)
 
 def escapeand(path1) 
 { 
-	esc =  path1.replace("& "^&")
+	esc =  path1.replace("&",  "^&")
 	return esc
 }
 
