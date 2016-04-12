@@ -1,12 +1,5 @@
 import groovy.json.JsonSlurper
 
-def puts3()
-{
-       
-def jsonSlurper = new JsonSlurper()
-def object = jsonSlurper.parseText('{ "name": "John Doe" }')
-echo object.name
-}
 
 // conver forward slash to backslash to avoid excess escaping
 def dospath(path1) 
