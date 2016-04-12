@@ -130,13 +130,6 @@ def nowstring()
 
 
 
-def adduser( name, passwd)
-{
-}
-
-def mkadmin( name)
-{
-}
 
 
 node{
@@ -146,8 +139,9 @@ node{
     senv = makesetenv(x)
     echo "senv =  " +senv
 
-   aws1 =  aws(senv, ["ec2", "describe-instances"])
-   echo "aws 1 = " + aws1
+   // this was a test --- now its anoying 
+   // aws1 =  aws(senv, ["ec2", "describe-instances"])
+   // echo "aws 1 = " + aws1
 
 // create new instace and get id
 
@@ -163,12 +157,7 @@ node{
     ip = idat.ip
 
 
-   echo ii
-   echo ip
 
-  adduser(senv, "oracle", "mrdb1!")
-  adduser(senv, "installer", "mrsetup1!")
-  mkadmin(senv, "installer")
 
 // tag instace
    echo "tagging"
