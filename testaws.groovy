@@ -264,6 +264,10 @@ node{
    wmicexec(ip,"Administrator",adminpass, pscmd)
    sleep 30
    copyfiles(ip)
+
+
+   instoracmd="cmd /c d:\\share\\instora.cmd"
+   wmicexec(ip,"Administrator",adminpass, instoracmd)
    
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
