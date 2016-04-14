@@ -288,6 +288,13 @@ node{
     bat instora2cmd
    echo nowstring()
   
+// compytnsnames
+   echo nowstring()
+    tnsnamecp  = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\copytnsnames.cmd"
+    echo tnsnamecp 
+    bat tnsnamecp 
+   echo nowstring()
+
 // install and start iis 
    echo nowstring()
     startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\startiis"
