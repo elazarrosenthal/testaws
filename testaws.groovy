@@ -251,31 +251,47 @@ node{
    echo nowstring()
 
 
+   echo nowstring()
    adduser(ip, "Administrator", adminpass, "installer", "mrsetup1!")
+   echo nowstring()
    mkadmin(ip, "Administrator", adminpass, "installer")
+   echo nowstring()
    mkrdu(ip, "Administrator", adminpass, "installer")
+   echo nowstring()
    adduser(ip, "Administrator", adminpass, "oracle", "mrdb1!")
+   echo nowstring()
    adduser(ip, "Administrator", adminpass, "share", "mountit1!")
+   echo nowstring()
    wmicexec(ip,"Administrator",adminpass, "cmd /c mkdir d:\\share")
+   echo nowstring()
 
    pscmd="powershell -Command \$netcmd='net share share=d:\\share /grant:share'+[char]44+'full'; cmd /c \$netcmd "
+   echo nowstring()
    echo "pscmd"
    echo pscmd
+   echo nowstring()
    wmicexec(ip,"Administrator",adminpass, pscmd)
+   echo nowstring()
    sleep 30
+   echo nowstring()
    copyfiles(ip)
+   echo nowstring()
 
 
 //   instoracmd="cmd /c d:\\share\\instora.cmd"
 //  wmicexec(ip,"Administrator",adminpass, instoracmd)
 //C:\Users\erose>Downloads\PSTools\psexec  \\10.252.142.93  -u installer -p mrsetup1! -h cmd /c d:\share\instora
+   echo nowstring()
     instora2cmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\instora"
     echo instora2cmd
+   echo nowstring()
     bat instora2cmd
+   echo nowstring()
    
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
+   echo nowstring()
    echo "wait for stopped"
 //   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
    echo nowstring()
