@@ -292,7 +292,7 @@ node{
    echo nowstring()
     startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\startiis"
     echo startiiscmd
-    bat startiis
+    bat startiicmd
    echo nowstring()
 ///   echo "stopping.. "
 //   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
