@@ -269,7 +269,7 @@ node{
 //   instoracmd="cmd /c d:\\share\\instora.cmd"
 //  wmicexec(ip,"Administrator",adminpass, instoracmd)
 //C:\Users\erose>Downloads\PSTools\psexec  \\10.252.142.93  -u installer -p mrsetup1! -h cmd /c d:\share\instora
-    instora2cmd = "D:\\Installs\\PSTools\\psexec  \\\\" + ip + "  -u Administrator -p " + adminpass + "  -h cmd /c d:\\share\\instora"
+    instora2cmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u Administrator -p " + adminpass + "  -h cmd /c d:\\share\\instora"
     echo instora2cmd
     bat instora2cmd
    
