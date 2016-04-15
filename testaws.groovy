@@ -314,7 +314,7 @@ node{
 // install webdeploy
 //webpicmd /install /products:wdeploy
    echo nowstring()
-    wscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c webpicmd /install /products:wdeploy"
+    wdcmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c webpicmd /install /products:wdeploy"
     echo wdcmd
     bat  wdcmd
    echo nowstring()
