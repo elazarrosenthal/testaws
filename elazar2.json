@@ -1,0 +1,113 @@
+{
+    "Reservations": [
+        {
+            "OwnerId": "312226949769", 
+            "ReservationId": "r-c55b5c17", 
+            "Groups": [], 
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "disabled"
+                    }, 
+                    "PublicDnsName": "", 
+                    "Platform": "windows", 
+                    "State": {
+                        "Code": 16, 
+                        "Name": "running"
+                    }, 
+                    "EbsOptimized": false, 
+                    "LaunchTime": "2016-04-11T20:26:18.000Z", 
+                    "PrivateIpAddress": "10.252.140.47", 
+                    "ProductCodes": [], 
+                    "VpcId": "vpc-95499bf0", 
+                    "StateTransitionReason": "", 
+                    "InstanceId": "i-4fe92cc8", 
+                    "ImageId": "ami-3d787d57", 
+                    "PrivateDnsName": "ip-10-252-140-47.ec2.internal", 
+                    "KeyName": "elazartest1", 
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "palo-alto-all-open", 
+                            "GroupId": "sg-27f9af42"
+                        }
+                    ], 
+                    "ClientToken": "uccZK1460406378050", 
+                    "SubnetId": "subnet-96d526e1", 
+                    "InstanceType": "m3.medium", 
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use", 
+                            "MacAddress": "0a:55:51:58:c0:77", 
+                            "SourceDestCheck": true, 
+                            "VpcId": "vpc-95499bf0", 
+                            "Description": "Primary network interface", 
+                            "NetworkInterfaceId": "eni-685a4329", 
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateDnsName": "ip-10-252-140-47.ec2.internal", 
+                                    "Primary": true, 
+                                    "PrivateIpAddress": "10.252.140.47"
+                                }
+                            ], 
+                            "PrivateDnsName": "ip-10-252-140-47.ec2.internal", 
+                            "Attachment": {
+                                "Status": "attached", 
+                                "DeviceIndex": 0, 
+                                "DeleteOnTermination": true, 
+                                "AttachmentId": "eni-attach-f4e6e70e", 
+                                "AttachTime": "2016-04-11T20:26:18.000Z"
+                            }, 
+                            "Groups": [
+                                {
+                                    "GroupName": "palo-alto-all-open", 
+                                    "GroupId": "sg-27f9af42"
+                                }
+                            ], 
+                            "SubnetId": "subnet-96d526e1", 
+                            "OwnerId": "312226949769", 
+                            "PrivateIpAddress": "10.252.140.47"
+                        }
+                    ], 
+                    "SourceDestCheck": true, 
+                    "Placement": {
+                        "Tenancy": "default", 
+                        "GroupName": "", 
+                        "AvailabilityZone": "us-east-1c"
+                    }, 
+                    "Hypervisor": "xen", 
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1", 
+                            "Ebs": {
+                                "Status": "attached", 
+                                "DeleteOnTermination": true, 
+                                "VolumeId": "vol-99ee9831", 
+                                "AttachTime": "2016-04-11T20:26:19.000Z"
+                            }
+                        }, 
+                        {
+                            "DeviceName": "xvdb", 
+                            "Ebs": {
+                                "Status": "attached", 
+                                "DeleteOnTermination": true, 
+                                "VolumeId": "vol-daee9872", 
+                                "AttachTime": "2016-04-11T20:26:19.000Z"
+                            }
+                        }
+                    ], 
+                    "Architecture": "x86_64", 
+                    "RootDeviceType": "ebs", 
+                    "RootDeviceName": "/dev/sda1", 
+                    "VirtualizationType": "hvm", 
+                    "Tags": [
+                        {
+                            "Value": "elazartest2", 
+                            "Key": "Name"
+                        }
+                    ], 
+                    "AmiLaunchIndex": 0
+                }
+            ]
+        }
+    ]
+}
