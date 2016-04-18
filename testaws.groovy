@@ -303,18 +303,10 @@ node{
    echo nowstring()
 
 
-//d:\share\WebPlatformInstaller_amd64_en-US.msi /passive
-
-   echo nowstring()
-    wpicmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\WebPlatformInstaller_amd64_en-US.msi /passive"
-    echo wpicmd 
-    bat  wpicmd 
-   echo nowstring()
-
 // install webdeploy
 //webpicmd /install /products:wdeploy
    echo nowstring()
-    wdcmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c webpicmd /install /products:wdeploy"
+    wdcmd = "D:\\share\\instwebdep.cmd"
     echo wdcmd
     bat  wdcmd
    echo nowstring()
