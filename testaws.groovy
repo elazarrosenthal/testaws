@@ -369,7 +369,7 @@ node{
 	catch(Exception e)
 	{
 		echo "wait failed retrying"
-		echo nowsting()
+		echo nowstring()
 	}
    }
 
