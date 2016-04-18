@@ -313,7 +313,13 @@ node{
 
 
 
+// d:\Jenkins\workspace\carrier-rn-admin-builder-git-qa-deploy\Rn.Admin\Rn.Admin.WebApi\publish\QA\Rn.Admin.WebApi.deploy.cmd /t /m:10.252.142.221 /U:installer /P:mrsetup1! 
 
+   echo nowstring()
+   depcmd = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebApi\\publish\\QA\\Rn.Admin.WebApi.deploy.cmd /t /m:" + ip + " /U:installer /P:mrsetup1!"
+  echo depcmd
+  bat depcmd
+   echo nowstring()
 
 
 
