@@ -306,7 +306,7 @@ node{
 // install webdeploy
 //webpicmd /install /products:wdeploy
    echo nowstring()
-    wdcmd = "D:\\share\\instwebdep.cmd"
+    wdcmd = "D:\\share\\instwebdep"
     echo wdcmd
     bat  wdcmd
    echo nowstring()
