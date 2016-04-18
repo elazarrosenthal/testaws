@@ -306,7 +306,7 @@ node{
 // install webdeploy
 //webpicmd /install /products:wdeploy
    echo nowstring()
-    wdcmd = "D:\\share\\instwebdep"
+    wdcmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c D:\\share\\instwebdep"
     echo wdcmd
     bat  wdcmd
    echo nowstring()
