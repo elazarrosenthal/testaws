@@ -12,7 +12,7 @@ def dospath(path1)
 def escapeand(path1) 
 { 
 	esc =  path1.replace("&",  "^&")
-	esc =  esc.replace("%",  "^%")
+	esc =  esc.replace("%",  "%%")
 	return esc
 }
 
