@@ -316,15 +316,23 @@ node{
 // d:\Jenkins\workspace\carrier-rn-admin-builder-git-qa-deploy\Rn.Admin\Rn.Admin.WebApi\publish\QA\Rn.Admin.WebApi.deploy.cmd /t /m:10.252.142.221 /U:installer /P:mrsetup1! 
 
    echo nowstring()
-   depcmd = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebApi\\publish\\QA\\Rn.Admin.WebApi.deploy.cmd /t /m:" + ip + " /U:installer /P:mrsetup1!"
+   depcmd = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebApi\\publish\\QA\\Rn.Admin.WebApi.deploy.cmd /y /m:" + ip + " /U:installer /P:mrsetup1!"
   echo depcmd
   bat depcmd
    echo nowstring()
 
+   echo nowstring()
+   depcmd2 = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebConsole\\publish\\QA\\Rn.Admin.WebConsole.deploy.cmd /y /m:" + ip + " /U:installer /P:mrsetup1!"
+  echo depcmd2
+  bat depcmd2
+   echo nowstring()
 
 
-///   echo "stopping.. "
-//   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
+
+
+
+   echo "stopping.. "
+   aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
 
 
@@ -332,7 +340,7 @@ node{
 
    echo nowstring()
    echo "wait for stopped"
-//   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
+   aws4 = aws(senv, [" ec2 wait   instance-stopped --instance-ids  " ,  ii ])
    echo nowstring()
 
 
@@ -344,11 +352,14 @@ node{
 
    echo nowstring()
    echo "wait for ami to be ready"
-// aws ec2 wait image-available --image-ids ami-947063fe
+   aws ec2 wait image-available --image-ids ami-947063fe
 
-//   awsami1 = aws(senv, [" ec2 wait     image-available --image-ids " ,  amiid ])
+   awsami1 = aws(senv, [" ec2 wait     image-available --image-ids " ,  amiid ])
 
    echo nowstring()
+
+   echo "restarting "
+   aws7 = aws(senv,[ "ec2  start-instances --instance-ids"  ,  ii] )
 
 
 //   echo "terminating "
