@@ -354,7 +354,26 @@ node{
    echo "wait for ami to be ready"
    // aws ec2 wait image-available --image-ids ami-947063fe
 
-   awsami1 = aws(senv, [" ec2 wait image-available --image-ids " ,  amiid ])
+   loop = true
+   while (loop)
+   {
+	try
+	{
+		echo "waiting for image"
+		echo nowstring()
+   		awsami1 = aws(senv, [" ec2 wait image-available --image-ids " ,  amiid ])
+		echo "wait done" 
+		echo nowstring()
+		loop = false
+	}
+	catch(Exception e)
+	{
+		echo "wait failed retrying"
+		echo nowsting()
+	}
+   }
+
+	
 
    echo nowstring()
 
