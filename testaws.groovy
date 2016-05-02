@@ -282,12 +282,14 @@ node{
 //   instoracmd="cmd /c d:\\share\\instora.cmd"
 //  wmicexec(ip,"Administrator",adminpass, instoracmd)
 //C:\Users\erose>Downloads\PSTools\psexec  \\10.252.142.93  -u installer -p mrsetup1! -h cmd /c d:\share\instora
+   sleep 10
    echo nowstring()
     instora2cmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\instora"
     echo instora2cmd
     bat instora2cmd
    echo nowstring()
   
+   sleep 10
 // compytnsnames
    echo nowstring()
     tnsnamecp  = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\copytnsnames.cmd"
@@ -295,6 +297,7 @@ node{
     bat tnsnamecp 
    echo nowstring()
 
+   sleep 10
 // install and start iis 
    echo nowstring()
     startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\startiis"
@@ -303,6 +306,7 @@ node{
    echo nowstring()
 
 
+   sleep 10
 // install webdeploy
 //webpicmd /install /products:wdeploy
    echo nowstring()
@@ -315,6 +319,7 @@ node{
 
 // d:\Jenkins\workspace\carrier-rn-admin-builder-git-qa-deploy\Rn.Admin\Rn.Admin.WebApi\publish\QA\Rn.Admin.WebApi.deploy.cmd /t /m:10.252.142.221 /U:installer /P:mrsetup1! 
 
+   sleep 10
    echo nowstring()
    depcmd = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebApi\\publish\\QA\\Rn.Admin.WebApi.deploy.cmd /y /m:" + ip + " /U:installer /P:mrsetup1!"
   echo depcmd
