@@ -116,10 +116,13 @@ def makesetenv(raw)
 {
 echo "m ... 1"
     x0 = raw.replaceAll("\n", "")
+echo x0
 echo "m ... 2"
     x1 = x0.replaceAll(";", "\n")
+echo x1
 echo "m ... 3"
     x2 = x1.replaceAll("export", "set")
+echo x2
 echo "m ... 4"
 echo x2
     return x2
