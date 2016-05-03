@@ -98,9 +98,7 @@ def ltos(args)
 
 def aws(envprefix ,args){
 	awsexe="c:/Program Files/Amazon/AWSCLI/aws.exe"
-	awspath=envprefix + quote(dospath(awsexe))  + " > awstmp.out 2>awstmp.err  "+ """
-exit 0
-"""
+	awspath=envprefix + quote(dospath(awsexe))  + " > awstmp.out 2>awstmp.err  "
  
 	awscmd = awspath +" " +  ltos(args)
 	awscmd2 = awscmd.toString()
