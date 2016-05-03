@@ -111,7 +111,8 @@ def aws(envprefix ,args){
 	bat cmd2
 	echo "aws bat command done"
 	echo "reading output"
-	d= readFile 'awstmp.out'
+	d1= readFile 'awstmp.out'
+	d = d1.toString()
 	echo "aws Generated ..."
 	echo d
 	echo "aws  done"
