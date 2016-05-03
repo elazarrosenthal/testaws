@@ -100,10 +100,13 @@ def aws(envprefix ,args){
 	awsexe="c:/Program Files/Amazon/AWSCLI/aws.exe"
 	awspath=envprefix + quote(dospath(awsexe))  + " > awstmp.out " 
 	awscmd = awspath +" " +  ltos(args)
-	awscmd = awscmd.toString()
+	awscmd2 = awscmd.toString()
+	awscmd = awscmd2
 	echo "Running AWS...."
 	echo awscmd
+	echo "calling aws bat command"
 	bat awscmd 
+	echo "aws bat command done"
 	echo "reading output"
 	d= readFile 'awstmp.out'
 	echo "aws Generated ..."
