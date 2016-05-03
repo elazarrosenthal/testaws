@@ -102,7 +102,8 @@ def aws(envprefix ,args){
 	awscmd = awspath +" " +  ltos(args)
 	echo "Running AWS...."
 	echo awscmd
-	bat awscmd
+	bat awscmd 
+	echo "reading output"
 	d= readFile 'awstmp.out'
 	echo "aws Generated ..."
 	echo d
