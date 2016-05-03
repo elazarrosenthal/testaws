@@ -102,6 +102,7 @@ def aws(envprefix ,args){
 	awscmd = awspath +" " +  ltos(args)
 	awscmd2 = awscmd.toString()
 	awscmd = awscmd2
+	echo awscmd2.getClass().toString()
 	echo "Running AWS...."
 	echo awscmd
 	echo "calling aws bat command"
