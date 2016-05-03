@@ -105,7 +105,7 @@ def aws(envprefix ,args){
 	echo awscmd2.getClass().toString()
 	echo "Running AWS...."
 	echo awscmd
-	writeFile file: 'tmpcmd.cmd', text: awscmd
+	writeFile file: 'tmpawscmd.cmd', text: awscmd
         cmd2 = "tmpawscmd.cmd"
 	echo "calling aws bat command"
 	bat cmd2
