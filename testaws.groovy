@@ -226,8 +226,8 @@ node{
   // ii = extractiid(aws2)
     idat =    getimagedata(aws2)
     echo "idat = " + idat.toString()
-    ii =  idat.id
-    ip = idat.ip
+    ii =  idat.id.toString()
+    ip = idat.ip.toString()
 
 
 
