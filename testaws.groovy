@@ -213,7 +213,7 @@ def copyfiles(ip)
 
 
 node{
-    stage "1"
+    stage "Get Creds 1"
     nows =nowstring()
    x =input message: 'enter vars:', parameters: [[$class: 'TextParameterDefinition', defaultValue: '', description: '', name: 'AWSENV']]
     senv = makesetenv(x)
@@ -225,6 +225,7 @@ node{
 
 // create new instace and get id
 
+    stage "Get Create Instance"
 
     bdev=' --block-device-mappings [ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 40 } }, { \"DeviceName\": \"xvdb\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 30 } } ]  '
    writeFile file: 'input.json', text: '[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 40 } }, { \"DeviceName\": \"xvdb\", \"Ebs\": { \"DeleteOnTermination\": true, \"VolumeSize\": 30 } } ]  '
@@ -242,11 +243,13 @@ node{
 
 
 // tag instace
+    stage "Tag Instance"
    echo "tagging"
    aws3 = aws(senv, [" ec2 create-tags --resources  " ,  ii , "  --tags Key=Name,Value=ElazarTestMachine-"+nows  ])
    echo "tag done"
 
    echo nowstring()
+    stage "Wait For  Instance Start"
 // wait for instace to start 
    echo "Waiting for start ...."
    aws4 = aws(senv, [" ec2 wait instance-status-ok  --instance-ids  " ,  ii ])
@@ -254,6 +257,7 @@ node{
    echo nowstring()
 
 
+    stage "Wait For  Get Password"
    echo nowstring()
 // get windows password
    echo "Getting Password"
@@ -264,6 +268,7 @@ node{
    echo "Got it"
    echo nowstring()
 
+   stage "Add Users"
 
    echo nowstring()
    adduser(ip, "Administrator", adminpass, "installer", "mrsetup1!")
@@ -279,6 +284,7 @@ node{
    wmicexec(ip,"Administrator",adminpass, "cmd /c mkdir d:\\share")
    echo nowstring()
 
+   stage "Set up Share"
    pscmd="powershell -Command \$netcmd='net share share=d:\\share /grant:share'+[char]44+'full'; cmd /c \$netcmd "
    echo nowstring()
    echo "pscmd"
@@ -288,6 +294,7 @@ node{
    echo nowstring()
    sleep 30
    echo nowstring()
+   stage "Copy Files"
    copyfiles(ip)
    echo nowstring()
 
@@ -295,6 +302,8 @@ node{
 //   instoracmd="cmd /c d:\\share\\instora.cmd"
 //  wmicexec(ip,"Administrator",adminpass, instoracmd)
 //C:\Users\erose>Downloads\PSTools\psexec  \\10.252.142.93  -u installer -p mrsetup1! -h cmd /c d:\share\instora
+
+   stage "Install Oracle"
    sleep 10
    echo nowstring()
     instora2cmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\instora"
@@ -311,6 +320,7 @@ node{
    echo nowstring()
 
    sleep 10
+   stage "Configure IIS"
 // install and start iis 
    echo nowstring()
     startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\startiis"
@@ -319,6 +329,7 @@ node{
    echo nowstring()
 
 
+   stage "Install Web Deploy"
    sleep 10
 // install webdeploy
 //webpicmd /install /products:wdeploy
@@ -333,6 +344,7 @@ node{
 // d:\Jenkins\workspace\carrier-rn-admin-builder-git-qa-deploy\Rn.Admin\Rn.Admin.WebApi\publish\QA\Rn.Admin.WebApi.deploy.cmd /t /m:10.252.142.221 /U:installer /P:mrsetup1! 
 
    sleep 10
+   stage "Deploy  Web Site"
    echo nowstring()
    depcmd = "d:\\Jenkins\\workspace\\carrier-rn-admin-builder-git-qa-deploy\\Rn.Admin\\Rn.Admin.WebApi\\publish\\QA\\Rn.Admin.WebApi.deploy.cmd /y /m:" + ip + " /U:installer /P:mrsetup1!"
   echo depcmd
@@ -349,6 +361,7 @@ node{
 
 
 
+   stage "Shut Down"
    echo "stopping.. "
    aws7 = aws(senv,[ "ec2  stop-instances --instance-ids"  ,  ii] )
 
@@ -362,12 +375,20 @@ node{
    echo nowstring()
 
 
+   stage "Create image"
    echo nowstring()
    echo "imaging "
    aws6 = aws(senv,[ "ec2 ", "create-image --instance-id ", ii, "--name", "elazartest1name-"+nows, "--description",  quote("elazar test server description-"+nows) ])
    amiid = getamidata(aws6)
    echo "amiid: " + amiid
 
+    stage "Get Creds 2"
+    nows =nowstring()
+   x =input message: 'enter vars:', parameters: [[$class: 'TextParameterDefinition', defaultValue: '', description: '', name: 'AWSENV']]
+    senv = makesetenv(x)
+    echo "senv =  " +senv
+
+   stage "Wait For Image"
    echo nowstring()
    echo "wait for ami to be ready"
    // aws ec2 wait image-available --image-ids ami-947063fe
@@ -395,6 +416,7 @@ node{
 
    echo nowstring()
 
+   stage "Restart"
    echo "restarting "
    aws7 = aws(senv,[ "ec2  start-instances --instance-ids"  ,  ii] )
 
