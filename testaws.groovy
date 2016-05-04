@@ -113,9 +113,14 @@ def aws(envprefix ,args){
 	echo "aws bat command done"
 	echo "reading output"
 	d1= readFile 'awstmp.out'
+	d2= readFile 'awstmp.err'
+	derr= d2.toString()
 	d = d1.toString()
 	echo "aws Generated ..."
+	echo "sdtout:"
 	echo d
+	echo "stderr:"
+	echo derr
 	echo "aws  done"
 	return d
 }
