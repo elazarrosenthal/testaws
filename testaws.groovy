@@ -121,6 +121,7 @@ def aws(envprefix ,args){
 	echo d
 	echo "stderr:"
 	echo derr
+	echo d2
 	echo "aws  done"
 	return d
 }
