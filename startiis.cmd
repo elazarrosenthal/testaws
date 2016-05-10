@@ -4,4 +4,3 @@ installiisfeatures.cmd
 fixauthlock.cmd
 fixeventreg.cmd
 
-exit 0
