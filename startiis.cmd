@@ -1,6 +1,7 @@
 d:
 cd d:\share
 installiisfeatures.cmd
-fixauthlock.cmd
-fixeventreg.cmd
+rem runnning seperatly
+rem fixauthlock.cmd
+rem fixeventreg.cmd
 
