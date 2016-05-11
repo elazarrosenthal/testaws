@@ -334,6 +334,28 @@ node{
     bat startiiscmd
    echo nowstring()
 
+   sleep 10
+  stage "fix perms"
+   echo nowstring()
+    startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\fixauthloc"
+    echo startiiscmd
+    bat startiiscmd
+   echo nowstring()
+
+   echo nowstring()
+    startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\fixeventreg"
+    echo startiiscmd
+    bat startiiscmd
+   echo nowstring()
+
+
+   echo nowstring()
+    startiiscmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\fakehosts"
+    echo startiiscmd
+    bat startiiscmd
+   echo nowstring()
+
+
 
    stage "Install Web Deploy"
    sleep 10
