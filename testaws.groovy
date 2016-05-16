@@ -316,7 +316,17 @@ node{
     echo instora2cmd
     bat instora2cmd
    echo nowstring()
+
+sleep 5
   
+// ungac oracle
+   echo nowstring()
+    ungaccmd = "D:\\Installs\\PSTools\\psexec -accepteula  \\\\" + ip + "  -u installer -p mrsetup1!  -h cmd /c d:\\share\\ungacoracle.cmd"
+    echo ungaccmd 
+    bat ungaccmd 
+   echo nowstring()
+
+
    sleep 10
 // compytnsnames
    echo nowstring()
